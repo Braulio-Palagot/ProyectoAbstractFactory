@@ -38,6 +38,14 @@ public abstract class Paquete {
         System.out.println("Agregando conferencias");
     }
 
+    void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    String getNombre() {
+        return nombre;
+    }
+
     @Override
     public String toString() {
         StringBuilder result = new StringBuilder();
@@ -45,7 +53,17 @@ public abstract class Paquete {
 
         if (acceso != null) {
             result.append(acceso);
-            result.append("\n");
+            result.append(":\n");
+        }
+        if (conferencias != null) {
+            for (Conferencia conferencia : conferencias) {
+                result.append("ヽ(=^･ω･^=)丿");
+                result.append(conferencia);
+                if (conferencia != conferencias[conferencias.length - 1]) {
+                    result.append(", ");
+                }
+                result.append("\n");
+            }
         }
         if (anotador != null) {
             result.append(anotador);
@@ -62,15 +80,6 @@ public abstract class Paquete {
         if (escritor != null) {
             result.append(escritor);
             result.append("\n");
-        }
-        if (conferencias != null) {
-            for (Conferencia conferencia : conferencias) {
-                result.append(conferencia);
-                if (conferencia != conferencias[conferencias.length - 1]) {
-                    result.append(", ");
-                }
-                result.append("\n");
-            }
         }
 
         return result.toString();
